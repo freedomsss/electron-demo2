@@ -7,11 +7,11 @@
         videoId="video_mp4"
       />
     </div>
-    <div>
-      <div>num: {{num}} + 6</div>
-      <div>result: {{result}}</div>
-      <el-button type="primary" @click="add">点击加</el-button>
-    </div>
+<!--    <div>-->
+<!--      <div>num: {{num}} + 6</div>-->
+<!--      <div>result: {{result}}</div>-->
+<!--      <el-button type="primary" @click="add">点击加</el-button>-->
+<!--    </div>-->
     <div>
       <el-button type="primary" @click="setVideo">打开摄像头</el-button>
       <video src="" id="VideoBlock"></video>
@@ -68,18 +68,18 @@ export default {
           video.autoplay = true
           var content = document.getElementsByClassName('videoBox')
           console.log('content', content)
-          // VideoBlock.height = content.offsetHeight
-          // video.width = '800px'
+          // content.height = content.offsetHeight
+          video.width = '800'
         })
         .catch(e => console.log(e))
-    },
-    add() {
-      const that = this
-      edgeModules.add(Number(this.num++), (error, result) => {
-        if (error) throw error
-        that.result = result
-      })
     }
+    // add() {
+    //   const that = this
+    //   edgeModules.add(Number(this.num++), (error, result) => {
+    //     if (error) throw error
+    //     that.result = result
+    //   })
+    // }
   }
 }
 </script>

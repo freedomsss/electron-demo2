@@ -1,4 +1,4 @@
-import path from 'path'
+// import path from 'path'
 
 const edge = require('electron-edge-js')
 // const path = require('path');
@@ -9,12 +9,12 @@ const helloWorld = edge.func(`
     }
 `)
 
-const add = edge.func({
-  // eslint-disable-next-line no-undef
-  assemblyFile: path.join(__static, 'ClassLibrary1.dll'),
-  typeName: 'ClassLibrary1.Class1',
-  methodName: 'Add'
-})
+// const add = edge.func({
+//   // eslint-disable-next-line no-undef
+//   assemblyFile: path.join(__static, 'ClassLibrary1.dll'),
+//   typeName: 'ClassLibrary1.Class1',
+//   methodName: 'Add'
+// })
 
 // const add = edge.func({
 //   assemblyFile: path.join(__static, 'ClassLibrary1.dll'),
@@ -28,6 +28,6 @@ const Fun3 = () => {
 
 export default {
   Fun3,
-  helloWorld,
-  add
+  helloWorld
+  // add
 }
