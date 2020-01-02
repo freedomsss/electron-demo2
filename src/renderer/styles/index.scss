@@ -56,4 +56,22 @@ a:hover {
 
 .app-container {
   padding: 20px;
+  .search-block{
+    .search-header{
+      display: flex;
+      justify-content: space-between;
+      color: #303133;
+      margin-bottom: 10px;
+    }
+    margin-bottom: 20px;
+    border: 1px solid #ebeef5;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: #f9fafc;
+  }
+  .table-block{
+    width: 100%;
+    height: auto;
+    margin: 20px  0;
+  }
 }

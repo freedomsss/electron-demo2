@@ -1,8 +1,9 @@
 /**
  * Created by jiachenpan on 16/11/18.
  */
+import request from '@/utils/request'
 
-export function parseTime(time, cFormat) {
+function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
@@ -34,7 +35,7 @@ export function parseTime(time, cFormat) {
   return time_str
 }
 
-export function formatTime(time, option) {
+function formatTime(time, option) {
   time = +time * 1000
   const d = new Date(time)
   const now = Date.now()
@@ -55,4 +56,52 @@ export function formatTime(time, option) {
   } else {
     return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
   }
+}
+
+function setVideo() {
+  navigator.mediaDevices
+    .enumerateDevices()
+    .then(devices => {
+      console.log(devices)
+      // var camera = devices.find(device => device.label == "HP Wide Vision HD Camera (05c8:03bc)");
+      var camera = devices.find(device => device.deviceId === 'a63812598102c64516ee1bf4a28bf8f838798740239674b80d567102d5738f07')
+      // var camera = devices.find(device => device.deviceId == "95c7247c0c8e7b4ab7a2c2011260bb90483a321eae946461df76c12adb65d6ef");
+      if (camera) {
+        var constraints = {
+          video: { deviceId: { exact: camera.deviceId }},
+          audio: false
+        }
+        return navigator.mediaDevices.getUserMedia(constraints)
+      }
+    })
+    .then(stream => {
+      var video = document.getElementById('video')
+      video.srcObject = stream
+      video.autoplay = true
+      var content = document.getElementsByClassName('videoBox')
+      console.log(content)
+      // video.height = content.offsetHeight;
+      // video.width = content.offsetWidth;
+    })
+    .catch(e => console.log(e))
+}
+
+// eslint-disable-next-line no-unused-vars
+async function getOptions(params, config = {}) {
+  // eslint-disable-next-line no-undef
+  const data = await request({
+    url: '/gyenno-admin/dict/api/getItemsByParentCode',
+    method: 'get',
+    params: { ...params }
+  }).then((res) => {
+    return res
+  })
+  return [...data]
+}
+
+export default {
+  parseTime,
+  getOptions,
+  formatTime,
+  setVideo
 }

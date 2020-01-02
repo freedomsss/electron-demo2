@@ -13,9 +13,13 @@ import store from './store'
 import '@/icons' // icon
 import '@/permission' // permission control
 
+import common from './utils/common' // 引入common
+
+Vue.use(common)
+
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI, { locale, size: 'small' })
 
 Vue.config.productionTip = false
 
