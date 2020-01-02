@@ -75,13 +75,13 @@ function setVideo() {
       }
     })
     .then(stream => {
-      var video = document.getElementById('video')
+      var video = document.getElementById('VideoBlock')
       video.srcObject = stream
       video.autoplay = true
       var content = document.getElementsByClassName('videoBox')
       console.log(content)
-      // video.height = content.offsetHeight;
-      // video.width = content.offsetWidth;
+      // VideoBlock.height = content.offsetHeight;
+      // VideoBlock.width = content.offsetWidth;
     })
     .catch(e => console.log(e))
 }

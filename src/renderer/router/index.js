@@ -57,10 +57,10 @@ export const constantRouterMap = [
         meta: { title: 'Tree', icon: 'tree' }
       },
       {
-        path: 'video',
-        name: 'Video',
-        component: () => import('@/views/video/index'),
-        meta: { title: 'Video', icon: 'tree' }
+        path: 'videoTest',
+        name: 'videoTest',
+        component: () => import('@/views/videoTest/index'),
+        meta: { title: 'videoTest', icon: 'el-icon-VideoBlock-camera' }
       }
     ]
   },
